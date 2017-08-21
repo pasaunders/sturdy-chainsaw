@@ -11,10 +11,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
     <script type="text/javascript">
         $("document").ready(function(){
-            $("input[type='submit']").click(function(event){
+            $("document").on("click", "input[type='submit']", function(event){
                 event.preventDefault();
-                $("ul").show()
+                $("ul").show();
                 $(".card_list").append("<li><h2>" + $("input[name='first_name']").val() + " " + $("input[name='last_name']").val() + "</h2><p>Click for description</p><p class='description_paragraph'>" + $("input[name='description']").val() + "</p></li>");
+
             });
             $("ul").on("click", "li", function(){
                 $(".description_paragraph").toggle();
