@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <script type="text/javascript">
+        $("document").ready(function(){
+            $("input[type='submit']").click(function(event){
+                event.preventDefault();
+                $("ul").show()
+                $(".card_list").append("<li><h2>" + $("input[name='first_name']").val() + " " + $("input[name='last_name']").val() + "</h2><p>Click for description</p><p class='description_paragraph'>" + $("input[name='description']").val() + "</p></li>");
+            });
+            $("ul").on("click", "li", function(){
+                $(".description_paragraph").toggle();
+                $(".description_paragraph").siblings().toggle()
+            });
+        });
+    </script>    
+</head>
+<body>
+    <form>
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name">
+
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name">
+
+        <label for="description">Description</label>
+        <input type="textarea" name="description">
+
+        <input type="submit" value="submit">
+    </form>
+    <section>
+        <ul class="card_list">
+            
+        </ul>
+    </section>
+</body>
+</html>
